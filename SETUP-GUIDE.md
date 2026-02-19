@@ -1,18 +1,12 @@
 # HerPicks.co — Setup Guide 🚀
 
-Everything is built. Follow these steps to go live.
+Everything is built, pushed to GitHub, and deployed!
 
-## Step 1: Create GitHub Repository (2 minutes)
+- ✅ GitHub repo: https://github.com/fernsugi/herpicks
+- ✅ GitHub Pages: enabled & deployed
+- ✅ Code: pushed and live
 
-1. Go to https://github.com/new
-2. Repository name: `herpicks`
-3. Set to **Public** (required for free GitHub Pages)
-4. DON'T add README (we already have one)
-5. Click "Create repository"
-
-Then tell Sen — he'll push the code for you.
-
-## Step 2: Point Domain to GitHub Pages (5 minutes)
+## ONLY STEP LEFT: Point Domain to GitHub Pages (5 minutes)
 
 Go to Namecheap → Domain List → herpicks.co → Advanced DNS
 
@@ -26,19 +20,9 @@ Delete any existing records, then add these:
 | A | @ | 185.199.111.153 |
 | CNAME | www | fernsugi.github.io. |
 
-(Replace `fernsugi` with your actual GitHub username if different)
-
 DNS takes 5-30 minutes to propagate.
 
-## Step 3: Enable GitHub Pages (1 minute)
-
-1. Go to your repo → Settings → Pages
-2. Source: **GitHub Actions**
-3. That's it — the workflow file is already included
-
-## Step 4: Wait for SSL (automatic)
-
-GitHub will auto-provision a free SSL certificate. Takes up to 1 hour.
+After DNS propagates, GitHub will auto-provision a free SSL certificate (up to 1 hour).
 Check "Enforce HTTPS" in Settings → Pages once available.
 
 ## Done! 🎉
