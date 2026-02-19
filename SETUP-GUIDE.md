@@ -1,75 +1,69 @@
 # 🌸 HerPicks.co — Setup Guide for Sugi
 
-**Everything is built. You just need to connect the wires.**
+Everything is built. You just need to connect the wires. ~10 minutes total.
 
-## Step 1: Create GitHub Repository (2 minutes)
+## Step 1: Create GitHub Repo (2 min)
 
-1. Go to https://github.com/new
-2. Repository name: `herpicks`
-3. Set to **Public** (required for free GitHub Pages)
-4. Do NOT add README (we already have one)
-5. Click "Create repository"
+1. Go to github.com → New Repository
+2. Name: `herpicks`
+3. Public (required for free GitHub Pages)
+4. DON'T add README (we already have one)
+5. Click Create
 
-Then I'll push the code for you (or you can run):
-```bash
-cd ~/.openclaw/workspace/herpicks
-git remote add origin https://github.com/fernsugi/herpicks.git
-git push -u origin main
-```
+Then tell me and I'll push the code.
 
-## Step 2: Enable GitHub Pages (1 minute)
+## Step 2: Point Domain to GitHub Pages (3 min)
 
-1. Go to your repo → **Settings** → **Pages**
-2. Source: **GitHub Actions** (it will use our deploy workflow)
-3. That's it — the site will auto-deploy on every push
+On Namecheap:
+1. Go to Domain List → `herpicks.co` → Manage
+2. Click **Advanced DNS**
+3. Delete any existing records
+4. Add these records:
 
-## Step 3: Point Domain to GitHub Pages (5 minutes)
+| Type  | Host | Value              |
+|-------|------|--------------------|
+| A     | @    | 185.199.108.153    |
+| A     | @    | 185.199.109.153    |
+| A     | @    | 185.199.110.153    |
+| A     | @    | 185.199.111.153    |
+| CNAME | www  | fernsugi.github.io |
 
-Go to Namecheap → Domain List → **herpicks.co** → **Advanced DNS**
+(Replace `fernsugi` with your actual GitHub username if different)
 
-Delete any existing records, then add:
+DNS takes 5-30 minutes to propagate.
 
-| Type | Host | Value |
-|------|------|-------|
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | fernsugi.github.io |
+## Step 3: Enable GitHub Pages (1 min)
 
-Wait 5-30 minutes for DNS to propagate.
-
-Then in GitHub → Settings → Pages → Custom domain: enter `herpicks.co` and check "Enforce HTTPS".
+1. Go to your repo on GitHub → Settings → Pages
+2. Source: **GitHub Actions** (not "Deploy from a branch")
+3. Custom domain: `herpicks.co`
+4. Check "Enforce HTTPS"
 
 ## Step 4: Done! 🎉
 
-Your site is live at **https://herpicks.co**
+Site will be live at https://herpicks.co once DNS propagates.
 
-## Later (Not Urgent):
+## Daily Operations
 
-- **Amazon PA-API**: Apply at https://affiliate-program.amazon.com — once approved, we can fetch real product images automatically
-- **Postiz**: For TikTok/IG auto-posting
-- **TikTok/IG warmup**: Keep scrolling beauty content daily
+### Adding new products
+I'll handle this automatically. The script at `scripts/update-products.js` adds products to the JSON file.
 
-## How to Add Products
+### TikTok/IG Content
+Once you set up Postiz, I'll generate slideshow content daily using `scripts/generate-slideshow.js`.
 
-Just tell me! I'll update `data/products.json` and push. Or you can run:
-```bash
-cd ~/.openclaw/workspace/herpicks
-node scripts/update-products.js add --title "Product Name" --price 29.99 --category Skincare --asin B00XXXXX
-```
+## What's Included
 
-## How Daily Updates Work
+- 55 real beauty products across 6 categories
+- All affiliate links tagged with `sentientstudi-22`
+- Mobile-responsive design
+- Search, filters, sorting
+- Full SEO (sitemap, meta tags, structured data)
+- Affiliate disclosure on every page
+- Auto-deploy via GitHub Actions
 
-Every night I can:
-1. Research trending beauty products on Amazon
-2. Add them to the site
-3. Push to GitHub (auto-deploys)
-4. Generate TikTok slideshow content
-
-Zero effort from you.
-
----
-
-**Total setup time: ~10 minutes**
-**Your ongoing effort: ~0 minutes/day** (I handle everything)
+## Future Improvements (I'll handle these)
+- Real Amazon product images via PA-API
+- More products (scaling to 200+)
+- Blog section for SEO content
+- Email newsletter integration
+- Analytics tracking
