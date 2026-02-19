@@ -1,69 +1,74 @@
-# 🌸 HerPicks.co — Setup Guide for Sugi
+# HerPicks.co — Setup Guide 🚀
 
-Everything is built. You just need to connect the wires. ~10 minutes total.
+Everything is built. Follow these steps to go live.
 
-## Step 1: Create GitHub Repo (2 min)
+## Step 1: Create GitHub Repository (2 minutes)
 
-1. Go to github.com → New Repository
-2. Name: `herpicks`
-3. Public (required for free GitHub Pages)
+1. Go to https://github.com/new
+2. Repository name: `herpicks`
+3. Set to **Public** (required for free GitHub Pages)
 4. DON'T add README (we already have one)
-5. Click Create
+5. Click "Create repository"
 
-Then tell me and I'll push the code.
+Then tell Sen — he'll push the code for you.
 
-## Step 2: Point Domain to GitHub Pages (3 min)
+## Step 2: Point Domain to GitHub Pages (5 minutes)
 
-On Namecheap:
-1. Go to Domain List → `herpicks.co` → Manage
-2. Click **Advanced DNS**
-3. Delete any existing records
-4. Add these records:
+Go to Namecheap → Domain List → herpicks.co → Advanced DNS
 
-| Type  | Host | Value              |
-|-------|------|--------------------|
-| A     | @    | 185.199.108.153    |
-| A     | @    | 185.199.109.153    |
-| A     | @    | 185.199.110.153    |
-| A     | @    | 185.199.111.153    |
-| CNAME | www  | fernsugi.github.io |
+Delete any existing records, then add these:
+
+| Type | Host | Value |
+|------|------|-------|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | fernsugi.github.io. |
 
 (Replace `fernsugi` with your actual GitHub username if different)
 
 DNS takes 5-30 minutes to propagate.
 
-## Step 3: Enable GitHub Pages (1 min)
+## Step 3: Enable GitHub Pages (1 minute)
 
-1. Go to your repo on GitHub → Settings → Pages
-2. Source: **GitHub Actions** (not "Deploy from a branch")
-3. Custom domain: `herpicks.co`
-4. Check "Enforce HTTPS"
+1. Go to your repo → Settings → Pages
+2. Source: **GitHub Actions**
+3. That's it — the workflow file is already included
 
-## Step 4: Done! 🎉
+## Step 4: Wait for SSL (automatic)
 
-Site will be live at https://herpicks.co once DNS propagates.
+GitHub will auto-provision a free SSL certificate. Takes up to 1 hour.
+Check "Enforce HTTPS" in Settings → Pages once available.
 
-## Daily Operations
+## Done! 🎉
 
-### Adding new products
-I'll handle this automatically. The script at `scripts/update-products.js` adds products to the JSON file.
+Your site will be live at **https://herpicks.co**
 
-### TikTok/IG Content
-Once you set up Postiz, I'll generate slideshow content daily using `scripts/generate-slideshow.js`.
+---
 
-## What's Included
+## Later: Social Media Setup
 
-- 55 real beauty products across 6 categories
-- All affiliate links tagged with `sentientstudi-22`
-- Mobile-responsive design
-- Search, filters, sorting
-- Full SEO (sitemap, meta tags, structured data)
-- Affiliate disclosure on every page
-- Auto-deploy via GitHub Actions
+When ready to start posting:
 
-## Future Improvements (I'll handle these)
-- Real Amazon product images via PA-API
-- More products (scaling to 200+)
-- Blog section for SEO content
-- Email newsletter integration
-- Analytics tracking
+1. **TikTok** — Create account, warm up 2 weeks scrolling beauty content
+2. **Instagram** — Same thing
+3. **Postiz** — Sign up, connect TikTok/IG, get API key
+4. Tell Sen the API key — automation takes over from there
+
+## Adding New Products
+
+Tell Sen "add more products to HerPicks" — he'll scrape trending Amazon beauty products and update the site automatically. Or run:
+
+```bash
+cd herpicks
+node scripts/update-products.js add --title "Product Name" --price 29.99 --category Skincare --asin B0XXXXXXXX
+```
+
+## Generating TikTok Slideshows
+
+```bash
+node scripts/generate-slideshow.js
+```
+
+This picks top products and generates slideshow prompts for image generation.
