@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerPicks — Curated Beauty Finds on Amazon</title>
+  <meta name="description" content="Discover the best beauty, skincare, and luxury products handpicked for you. Curated deals on Amazon's top-rated beauty essentials.">
+  <meta property="og:title" content="HerPicks — Curated Beauty Finds on Amazon">
+  <meta property="og:description" content="Discover the best beauty, skincare, and luxury products handpicked for you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://herpicks.co">
+  <meta property="og:image" content="https://herpicks.co/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://herpicks.co">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Her<span>Picks</span></a>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="categories/skincare.html">Skincare</a>
+        <a href="categories/makeup.html">Makeup</a>
+        <a href="categories/haircare.html">Haircare</a>
+        <a href="categories/fragrance.html">Fragrance</a>
+        <a href="categories/luxury-beauty.html">Luxury</a>
+      </nav>
+      <div class="header-actions">
+        <button class="search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="mobile-menu-toggle" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close">✕</button>
+    <div class="search-container">
+      <input type="text" placeholder="Search beauty products..." autofocus>
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-backdrop"></div>
+  <nav class="mobile-nav">
+    <button class="close-mobile">✕</button>
+    <a href="index.html">Home</a>
+    <a href="categories/skincare.html">Skincare</a>
+    <a href="categories/makeup.html">Makeup</a>
+    <a href="categories/haircare.html">Haircare</a>
+    <a href="categories/fragrance.html">Fragrance</a>
+    <a href="categories/luxury-beauty.html">Luxury Beauty</a>
+    <a href="categories/tools-accessories.html">Tools & Accessories</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="hero-eyebrow">✦ Curated for You</span>
+      <h1>Discover Your Next <em>Beauty</em> Obsession</h1>
+      <p>Handpicked beauty finds from Amazon — skincare, makeup, haircare, and luxury products loved by thousands.</p>
+      <a href="#products" class="hero-cta">Explore Top Picks ↓</a>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories-strip">
+    <div class="container">
+      <div class="categories-grid">
+        <a href="categories/skincare.html" class="category-card">
+          <div class="category-icon">🧴</div>
+          <h3>Skincare</h3>
+          <p>Serums, moisturizers & more</p>
+        </a>
+        <a href="categories/makeup.html" class="category-card">
+          <div class="category-icon">💄</div>
+          <h3>Makeup</h3>
+          <p>Lipstick, foundation & eyes</p>
+        </a>
+        <a href="categories/haircare.html" class="category-card">
+          <div class="category-icon">💇‍♀️</div>
+          <h3>Haircare</h3>
+          <p>Shampoo, treatments & styling</p>
+        </a>
+        <a href="categories/fragrance.html" class="category-card">
+          <div class="category-icon">🌸</div>
+          <h3>Fragrance</h3>
+          <p>Perfumes & body mists</p>
+        </a>
+        <a href="categories/luxury-beauty.html" class="category-card">
+          <div class="category-icon">✨</div>
+          <h3>Luxury Beauty</h3>
+          <p>Premium & prestige brands</p>
+        </a>
+        <a href="categories/tools-accessories.html" class="category-card">
+          <div class="category-icon">🪮</div>
+          <h3>Tools</h3>
+          <p>Brushes, devices & more</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2>Today's Top Picks</h2>
+        <p>Our editors' selection of the best beauty deals right now</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="products-toolbar">
+        <div class="filter-tags">
+          <button class="filter-tag active" data-category="all">All</button>
+          <button class="filter-tag" data-category="skincare">Skincare</button>
+          <button class="filter-tag" data-category="makeup">Makeup</button>
+          <button class="filter-tag" data-category="haircare">Haircare</button>
+          <button class="filter-tag" data-category="fragrance">Fragrance</button>
+          <button class="filter-tag" data-category="luxury beauty">Luxury</button>
+          <button class="filter-tag" data-category="tools & accessories">Tools</button>
+        </div>
+        <select class="sort-select" id="sort-select">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Highest Rated</option>
+          <option value="reviews">Most Reviews</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+
+      <p class="results-count"></p>
+      <div class="products-grid" id="products-grid"></div>
+
+      <div class="load-more-wrap">
+        <button class="btn-load-more" id="load-more">Load More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="section-header">
+        <h2>Stay in the Loop</h2>
+        <p>Get the best beauty deals delivered to your inbox weekly</p>
+      </div>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓'; this.querySelector('input').value='';">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Her<span>Picks</span></a>
+          <p>Curated beauty finds from Amazon. We handpick the best skincare, makeup, haircare, and luxury products so you don't have to search.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <a href="categories/skincare.html">Skincare</a>
+          <a href="categories/makeup.html">Makeup</a>
+          <a href="categories/haircare.html">Haircare</a>
+          <a href="categories/fragrance.html">Fragrance</a>
+          <a href="categories/luxury-beauty.html">Luxury Beauty</a>
+          <a href="categories/tools-accessories.html">Tools & Accessories</a>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="about.html">About Us</a>
+          <a href="about.html#disclosure">Affiliate Disclosure</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 HerPicks. All rights reserved.</p>
+        <p class="affiliate-disclosure">As an Amazon Associate, HerPicks earns from qualifying purchases. Product prices and availability are subject to change. We may earn a commission when you click our links at no extra cost to you.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skincare — HerPicks</title>
+  <meta name="description" content="Cleansers, serums, moisturizers, sunscreen, and more for your best skin ever.">
+  <meta property="og:title" content="Skincare — HerPicks">
+  <meta property="og:description" content="Cleansers, serums, moisturizers, sunscreen, and more for your best skin ever.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://herpicks.co/categories/skincare.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-category="Skincare">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">Her<span>Picks</span></a>
+      <nav class="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="skincare.html" class="active">Skincare</a>
+        <a href="makeup.html">Makeup</a>
+        <a href="haircare.html">Haircare</a>
+        <a href="fragrance.html">Fragrance</a>
+        <a href="luxury-beauty.html">Luxury</a>
+      </nav>
+      <div class="header-actions">
+        <button class="search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="mobile-menu-toggle" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-overlay">
+    <button class="search-close">✕</button>
+    <div class="search-container">
+      <input type="text" placeholder="Search beauty products...">
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <div class="mobile-nav-backdrop"></div>
+  <nav class="mobile-nav">
+    <button class="close-mobile">✕</button>
+    <a href="../index.html">Home</a>
+    <a href="skincare.html">Skincare</a>
+    <a href="makeup.html">Makeup</a>
+    <a href="haircare.html">Haircare</a>
+    <a href="fragrance.html">Fragrance</a>
+    <a href="luxury-beauty.html">Luxury Beauty</a>
+    <a href="tools-accessories.html">Tools & Accessories</a>
+    <a href="../about.html">About</a>
+  </nav>
+
+  <section class="category-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> <span>›</span> <span>Skincare</span>
+      </div>
+      <h1>🧴 Skincare</h1>
+      <p>Cleansers, serums, moisturizers, sunscreen, and more for your best skin ever.</p>
+    </div>
+  </section>
+
+  <section class="category-content">
+    <div class="container">
+      <div class="products-toolbar">
+        <div class="filter-tags">
+          <button class="filter-tag active" data-category="all">All</button>
+        </div>
+        <select class="sort-select" id="sort-select">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Highest Rated</option>
+          <option value="reviews">Most Reviews</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+      <p class="results-count"></p>
+      <div class="products-grid" id="products-grid"></div>
+      <div class="load-more-wrap">
+        <button class="btn-load-more" id="load-more">Load More</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 HerPicks. All rights reserved.</p>
+        <p class="affiliate-disclosure">As an Amazon Associate, HerPicks earns from qualifying purchases. Product prices and availability are subject to change.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="../js/app.js"></script>
+</body>
+</html>

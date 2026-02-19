@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — HerPicks</title>
+  <meta name="description" content="Shop this beauty product on Amazon with our curated recommendation.">
+  <meta property="og:type" content="product">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Her<span>Picks</span></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="categories/skincare.html">Skincare</a>
+        <a href="categories/makeup.html">Makeup</a>
+        <a href="categories/haircare.html">Haircare</a>
+        <a href="categories/fragrance.html">Fragrance</a>
+        <a href="categories/luxury-beauty.html">Luxury</a>
+      </nav>
+      <div class="header-actions">
+        <button class="search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="mobile-menu-toggle" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-overlay">
+    <button class="search-close">✕</button>
+    <div class="search-container">
+      <input type="text" placeholder="Search beauty products...">
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <div class="mobile-nav-backdrop"></div>
+  <nav class="mobile-nav">
+    <button class="close-mobile">✕</button>
+    <a href="index.html">Home</a>
+    <a href="categories/skincare.html">Skincare</a>
+    <a href="categories/makeup.html">Makeup</a>
+    <a href="categories/haircare.html">Haircare</a>
+    <a href="categories/fragrance.html">Fragrance</a>
+    <a href="categories/luxury-beauty.html">Luxury Beauty</a>
+    <a href="categories/tools-accessories.html">Tools & Accessories</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <section class="product-detail" id="product-detail">
+    <!-- Dynamically rendered by JS -->
+    <div class="container" style="text-align:center;padding:80px 0;">
+      <div class="skeleton" style="width:200px;height:200px;margin:0 auto 20px;border-radius:12px;"></div>
+      <div class="skeleton" style="width:300px;height:24px;margin:0 auto 12px;"></div>
+      <div class="skeleton" style="width:200px;height:16px;margin:0 auto;"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 HerPicks. All rights reserved.</p>
+        <p class="affiliate-disclosure">As an Amazon Associate, HerPicks earns from qualifying purchases. Product prices and availability are subject to change.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/app.js"></script>
+</body>
+</html>
