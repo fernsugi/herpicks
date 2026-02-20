@@ -87,13 +87,14 @@
   // ─── Product Card HTML ───
   function productCardHTML(p) {
     const stars = renderStars(p.rating);
-    const badge = p.badge ? `<span class="badge ${p.badge}">${p.badge}</span>` : '';
+    const badgeLabels = { bestseller: '⭐ Best Seller', new: '✨ New', sale: '🔥 Sale' };
+    const badge = p.badge ? `<span class="badge ${p.badge}">${badgeLabels[p.badge] || p.badge}</span>` : '';
     const originalPrice = p.originalPrice ? `<span class="price-original">$${p.originalPrice.toFixed(2)}</span>` : '';
     const detailUrl = getProductDetailUrl(p.id);
     return `
       <div class="product-card">
-        ${badge}
         <a href="${detailUrl}" class="product-image">
+          ${badge}
           <img src="${p.image}" alt="${escapeHtml(p.title)}" loading="lazy" onerror="this.src='https://placehold.co/400x400/F2E0D9/C4727F?text=HerPicks'">
         </a>
         <div class="product-info">

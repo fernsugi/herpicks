@@ -524,7 +524,7 @@ ul { list-style: none; }
   border-color: transparent;
 }
 
-.product-card .badge {
+.product-image .badge {
   position: absolute;
   top: 12px;
   left: 12px;
@@ -532,9 +532,9 @@ ul { list-style: none; }
   border-radius: 20px;
   font-size: 11px;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
   z-index: 2;
+  white-space: nowrap;
 }
 
 .badge.bestseller { background: var(--gold); color: var(--white); }
