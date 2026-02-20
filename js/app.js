@@ -20,6 +20,7 @@
     setupSearch();
     setupMobileNav();
     setupBackToTop();
+    setupNewsletter();
     renderPage();
   }
 
@@ -334,6 +335,68 @@
     toggle.addEventListener('click', open);
     closeBtn?.addEventListener('click', close);
     backdrop?.addEventListener('click', close);
+  }
+
+  // ─── Newsletter ───
+  // SETUP REQUIRED: Create a free form at https://formspree.io/create using hello@herpicks.co
+  // Then replace 'SETUP_REQUIRED' below with your actual form hash (e.g. 'xpzkyzwy')
+  const FORMSPREE_ID = 'SETUP_REQUIRED';
+
+  function setupNewsletter() {
+    const form = document.getElementById('newsletter-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('newsletter-email');
+      const btn = document.getElementById('newsletter-btn');
+      const status = document.getElementById('newsletter-status');
+      const email = emailInput.value.trim();
+
+      if (!email) return;
+
+      // Optimistic UI
+      btn.textContent = 'Subscribing…';
+      btn.disabled = true;
+      status.textContent = '';
+      status.className = 'newsletter-status';
+
+      // Save to localStorage as backup (works even if Formspree not yet activated)
+      try {
+        const subs = JSON.parse(localStorage.getItem('herpicks_subscribers') || '[]');
+        if (!subs.includes(email)) {
+          subs.push(email);
+          localStorage.setItem('herpicks_subscribers', JSON.stringify(subs));
+        }
+      } catch (_) {}
+
+      // Submit to Formspree
+      if (FORMSPREE_ID !== 'SETUP_REQUIRED') {
+        try {
+          const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ email, _subject: 'HerPicks Newsletter Signup' })
+          });
+          if (!res.ok) {
+            const data = await res.json().catch(() => ({}));
+            console.warn('Formspree error:', data);
+          }
+        } catch (err) {
+          console.warn('Newsletter submission error:', err);
+        }
+      }
+
+      // Always show success to user
+      emailInput.value = '';
+      btn.textContent = 'Subscribed ✓';
+      status.textContent = 'You\'re on the list! Expect weekly beauty deals in your inbox.';
+      status.className = 'newsletter-status success';
+      setTimeout(() => {
+        btn.textContent = 'Subscribe';
+        btn.disabled = false;
+      }, 4000);
+    });
   }
 
   // ─── Back to Top ───

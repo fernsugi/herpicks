@@ -163,10 +163,14 @@
         <h2>Stay in the Loop</h2>
         <p>Get the best beauty deals delivered to your inbox weekly</p>
       </div>
-      <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓'; this.querySelector('input').value='';">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
+      <!-- Newsletter form — connected to Formspree for email collection.
+           SETUP: Go to https://formspree.io/create, enter hello@herpicks.co,
+           get your form hash (e.g. xpzkyzwy), then update FORMSPREE_ID below in js/app.js -->
+      <form id="newsletter-form" class="newsletter-form" novalidate>
+        <input type="email" id="newsletter-email" placeholder="Enter your email" required autocomplete="email">
+        <button type="submit" id="newsletter-btn">Subscribe</button>
       </form>
+      <p id="newsletter-status" class="newsletter-status" aria-live="polite"></p>
     </div>
   </section>
 
