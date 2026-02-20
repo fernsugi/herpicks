@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PRODUCTS_FILE = path.join(__dirname, '..', 'data', 'products.json');
-const AFFILIATE_TAG = 'sentientstudi-22';
+const AFFILIATE_TAG = 'sentientstu05-20';
 
 function loadProducts() {
   const raw = fs.readFileSync(PRODUCTS_FILE, 'utf-8');

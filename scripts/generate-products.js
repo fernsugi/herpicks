@@ -37,7 +37,7 @@ const { execSync } = require('child_process');
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
-const AFFILIATE_TAG = 'sentientstudi-22';
+const AFFILIATE_TAG = 'sentientstu05-20';
 const BASE_DIR = path.join(__dirname, '..');
 const PRODUCTS_FILE = path.join(BASE_DIR, 'data', 'products.json');
 const PRODUCTS_DIR = path.join(BASE_DIR, 'products');
