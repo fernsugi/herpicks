@@ -542,6 +542,7 @@ ul { list-style: none; }
 .badge.sale { background: #E85D75; color: var(--white); }
 
 .product-image {
+  display: block;
   position: relative;
   padding-top: 100%;
   background: var(--blush-light);
