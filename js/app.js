@@ -339,19 +339,27 @@
 
   // ─── Newsletter ───
   // SETUP REQUIRED: Create a free form at https://formspree.io/create using hello@herpicks.co
-  // Then replace 'SETUP_REQUIRED' below with your actual form hash (e.g. 'xpzkyzwy')
-  const FORMSPREE_ID = 'SETUP_REQUIRED';
+  // Then replace SETUP_REQUIRED in index.html (data-formspree-id + form action URL)
+  // with your actual form hash (e.g. xpzkyzwy).
 
   function setupNewsletter() {
     const form = document.getElementById('newsletter-form');
     if (!form) return;
+
+    const getFormspreeId = () => {
+      const fromData = (form.dataset.formspreeId || '').trim();
+      if (fromData) return fromData;
+      const action = (form.getAttribute('action') || '').trim();
+      const m = action.match(/formspree\.io\/f\/([a-z0-9]+)/i);
+      return m ? m[1] : '';
+    };
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const emailInput = document.getElementById('newsletter-email');
       const btn = document.getElementById('newsletter-btn');
       const status = document.getElementById('newsletter-status');
-      const email = emailInput.value.trim();
+      const email = (emailInput?.value || '').trim();
 
       if (!email) return;
 
@@ -361,7 +369,7 @@
       status.textContent = '';
       status.className = 'newsletter-status';
 
-      // Save to localStorage as backup (works even if Formspree not yet activated)
+      // Save to localStorage as backup
       try {
         const subs = JSON.parse(localStorage.getItem('herpicks_subscribers') || '[]');
         if (!subs.includes(email)) {
@@ -370,13 +378,20 @@
         }
       } catch (_) {}
 
-      // Submit to Formspree
-      if (FORMSPREE_ID !== 'SETUP_REQUIRED') {
+      const formspreeId = getFormspreeId();
+      const formspreeReady = formspreeId && formspreeId !== 'SETUP_REQUIRED';
+
+      // Submit to Formspree (JSON API)
+      if (formspreeReady) {
         try {
-          const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ email, _subject: 'HerPicks Newsletter Signup' })
+            body: JSON.stringify({
+              email,
+              _subject: 'HerPicks Newsletter Signup',
+              source: window.location.href
+            })
           });
           if (!res.ok) {
             const data = await res.json().catch(() => ({}));
@@ -385,6 +400,11 @@
         } catch (err) {
           console.warn('Newsletter submission error:', err);
         }
+      } else {
+        // Fallback: open a mailto (free + works without any third-party setup)
+        const subject = encodeURIComponent('HerPicks Newsletter Signup');
+        const body = encodeURIComponent(`Please add me to the HerPicks newsletter list:\n\n${email}\n\nSource: ${window.location.href}`);
+        window.location.href = `mailto:hello@herpicks.co?subject=${subject}&body=${body}`;
       }
 
       // Always show success to user
